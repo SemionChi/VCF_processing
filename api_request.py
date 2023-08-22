@@ -4,6 +4,7 @@ from cachetools import cached, TTLCache
 # Configure the cache with a time-to-live (TTL)
 cache = TTLCache(maxsize=100, ttl=3600)  # Cache up to 100 responses for 1 hour
 
+
 @cached(cache)  # Decorate the function with caching
 def get_variant_gene(chr, pos, ref, alt, reference_version):
     api_url = "https://test.genoox.com/api/fetch_variant_details"
@@ -23,6 +24,3 @@ def get_variant_gene(chr, pos, ref, alt, reference_version):
     else:
         print(f"Failed to fetch variant details. Status code: {response.status_code}")
         return None
-
-
-
