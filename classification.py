@@ -80,31 +80,5 @@ def main():
                             with ThreadPoolExecutor(max_workers=3) as executor:
                                 executor.submit(process_vcf_line, line, header_lines, REF_index, ALT_index, father_index, mother_index, proband_index, INFO_index)
 
-
-
-                        # if line.startswith("#CHROM"):
-                        #     header_lines.append(line)
-                        #     header = line.strip().split('\t')
-                        #     REF_index = header.index("REF")
-                        #     ALT_index = header.index("ALT")
-                        #     father_index = header.index("father")
-                        #     mother_index = header.index("mother")
-                        #     proband_index = header.index("proband")
-                        #     INFO_index = header.index("INFO")
-                        #     data_started = True
-                        # elif data_started and not line.startswith('#'):
-                        #     # Create a ThreadPoolExecutor to process lines in parallel
-                        #     with ThreadPoolExecutor(max_workers=3) as executor:
-                        #         executor.submit(process_vcf_line, line, header, REF_index, ALT_index, father_index, mother_index, proband_index, INFO_index)
-
-
-
-
-
-
-  
-    
-
-
 if __name__ == "__main__":
     main()
