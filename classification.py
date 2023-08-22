@@ -62,22 +62,40 @@ def main():
             if os.path.isfile(file_path):
                 with open(file_path, "r") as file:
                     header_lines=[]
-                    lines = file.readlines()
-                    for line in lines:
+                    for line in file:
                         if line.startswith("#CHROM"):
                             header_lines.append(line)
                             header = line.strip().split('\t')
-                            REF_index = header.index("REF")
-                            ALT_index = header.index("ALT")
+                            REF_index=header.index("REF")
+                            ALT_index=header.index("ALT")
                             father_index = header.index("father")
                             mother_index = header.index("mother")
                             proband_index = header.index("proband")
-                            INFO_index = header.index("INFO")
-                            data_started = True
-                        elif data_started and not line.startswith('#'):
-                            # Create a ThreadPoolExecutor to process lines in parallel
+                            INFO_index=header.index("INFO")
+                            break
+                        elif line.startswith('#'):
+                            header_lines.append(line)
+                    for line in file:
+                        # Create a ThreadPoolExecutor to process lines in parallel
                             with ThreadPoolExecutor(max_workers=3) as executor:
-                                executor.submit(process_vcf_line, line, header, REF_index, ALT_index, father_index, mother_index, proband_index, INFO_index)
+                                executor.submit(process_vcf_line, line, header_lines, REF_index, ALT_index, father_index, mother_index, proband_index, INFO_index)
+
+
+
+                        # if line.startswith("#CHROM"):
+                        #     header_lines.append(line)
+                        #     header = line.strip().split('\t')
+                        #     REF_index = header.index("REF")
+                        #     ALT_index = header.index("ALT")
+                        #     father_index = header.index("father")
+                        #     mother_index = header.index("mother")
+                        #     proband_index = header.index("proband")
+                        #     INFO_index = header.index("INFO")
+                        #     data_started = True
+                        # elif data_started and not line.startswith('#'):
+                        #     # Create a ThreadPoolExecutor to process lines in parallel
+                        #     with ThreadPoolExecutor(max_workers=3) as executor:
+                        #         executor.submit(process_vcf_line, line, header, REF_index, ALT_index, father_index, mother_index, proband_index, INFO_index)
 
 
 
