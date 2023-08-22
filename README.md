@@ -27,19 +27,24 @@ To use this project, follow these steps:
    ```bash
      pip install -r requirements.txt
      ```
- 
-
 3. Run the main script with the desired parameters:
 
    ```bash
    python main_.py --start <start_value> --end <end_value> --minDP <minDP_value> limit <limit_value>
    ```
-  ex: 
-    ```bash
-     python main.py 8 --minDP 120
-     ```
+   
+     ex: 
+       ```bash
+        python main.py 8 --minDP 120
+        ```
      
-  limit variable does not require the arguments name, "--limit" is not required in the run command
+   limit variable does not require the arguments name, "--limit" is not required in the run command
+  
+4. Run the classification script:
+
+   ```bash
+   python classification.py
+   ```
 
 ## Must-Have Requirements
 
