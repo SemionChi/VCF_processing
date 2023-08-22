@@ -70,3 +70,11 @@ To use this project, follow these steps:
 - [x] Develop a classification logic to categorize variants from `<SAMPLE>_filtered.vcf` files. Apply the following logic and save results to `<SAMPLE>_classified.vcf`:
 - If the difference between the length of REF and ALT is not divisible by 3, classify the variant as PATHOGENIC.
 - Otherwise, classify it as BENIGN.
+
+Result example:
+```bash
+   #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	father	mother	proband
+
+chr12	67147	.	CT	C	31.8	.	FS=0;MQ=34.22;MQRankSum=0.05;QD=1.51;ReadPosRankSum=0.854;SOR=0.693;FractionInformativeReads=1;DP=21;AF=0.5;AN=2;AC=1;GENE=FAM138D;CLASSIFICATION=PATHOGENIC;	GT:AD:AF:DP:GQ:PL:SB	./.:.:.:.:.:.:.	./.:.:.:.:.:.:.	0/1:18,3:0.143:21:72:72,0,1180:7,11,1,2
+chr12	67149	.	T	A	43.55	.	FS=0;MQ=34.22;MQRankSum=-0.151;QD=2.07;ReadPosRankSum=0.854;SOR=0.693;FractionInformativeReads=1;DP=21;AF=0.5;AN=2;AC=1;GENE=FAM138D;CLASSIFICATION=BENGIN;	GT:AD:AF:DP:GQ:PL:SB	./.:.:.:.:.:.:.	./.:.:.:.:.:.:.	0/1:18,3:0.143:21:72:72,0,1180:7,11,1,2
+```
