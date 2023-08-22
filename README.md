@@ -34,7 +34,7 @@ To use this project, follow these steps:
    ```
    
      ex: 
-       ```bash
+       ```
         python main.py 8 --minDP 120
         ```
      
