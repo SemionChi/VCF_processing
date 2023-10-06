@@ -62,7 +62,6 @@ To use this project, follow these steps:
 
 - [x] 1. Process the input VCF without persisting it to disk (zipped or extracted) + not reading it to the memory wholesale.
 - [x] 2. Implement caching for API responses to prevent redundant queries.
-- [ ] 3. Provide a mechanism to resume processing from where it left off after a crash.
 
 
 ## Bonus Question
